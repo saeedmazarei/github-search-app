@@ -1,0 +1,8 @@
+build
+www
+www1
+dist
+node_modules
+.github
+.vscode
+.yarn
