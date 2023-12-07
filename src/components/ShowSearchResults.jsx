@@ -7,7 +7,7 @@ function ShowSearchResult({ searchResult }) {
     return (
         <Row justify={'center'} style={{ marginTop: '10px' }}>
             <Col xs={20} sm={18} md={14} lg={12}>
-                <div style={{ border: '1px solid black', height: '90vh', overflow: 'auto' }}>
+                <div style={{ height: '90vh', overflow: 'auto' }}>
                     <List
                         itemLayout="horizontal"
                         dataSource={searchResult}
