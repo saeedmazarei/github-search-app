@@ -19,10 +19,14 @@ function Home() {
     const [loading, setLoading] = useState(false)
 
     async function searchHandler(value) {
-        setLoading(true)
-        const response = await searchRequest(value.target.value)
-        setSearchResult(response.data)
-        setLoading(false)
+        if (value.target.value === '') {
+            setSearchResult([])
+        } else {
+            setLoading(true)
+            const response = await searchRequest(value.target.value)
+            setSearchResult(response.data)
+            setLoading(false)
+        }
     }
 
     return (
@@ -47,17 +51,19 @@ function Home() {
                         />
                     </Col>
                 </Row>
-                <Row justify={'center'}>
-                    <Col xs={20} sm={18} md={14} lg={12}>
-                        <div style={{ border: '1px solid black', height: '100px' }}>
-                            <ul>
-                                {searchResult.slice(0, 5).map((value) => (
-                                    <li key={value.id}>{value.full_name}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    </Col>
-                </Row>
+                {searchResult.length !== 0 && (
+                    <Row justify={'center'}>
+                        <Col xs={20} sm={18} md={14} lg={12}>
+                            <div style={{ border: '1px solid black', height: '100px' }}>
+                                <ul>
+                                    {searchResult.slice(0, 5).map((value) => (
+                                        <li key={value.id}>{value.full_name}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </Col>
+                    </Row>
+                )}
             </div>
         </>
     )
