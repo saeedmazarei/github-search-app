@@ -24,7 +24,7 @@ function Home() {
         } else {
             setLoading(true)
             const response = await searchRequest(value.target.value)
-            setSearchResult(response.data)
+            setSearchResult(response.data.items)
             setLoading(false)
         }
     }
