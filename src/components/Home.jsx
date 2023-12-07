@@ -21,7 +21,7 @@ function Home() {
     async function searchHandler(value) {
         setLoading(true)
         const response = await searchRequest(value.target.value)
-        setSearchResult(response.data.items)
+        setSearchResult(response.data)
         setLoading(false)
     }
 
@@ -49,7 +49,13 @@ function Home() {
                 </Row>
                 <Row justify={'center'}>
                     <Col xs={20} sm={18} md={14} lg={12}>
-                        <div style={{ border: '1px solid black', height: '100px' }}></div>
+                        <div style={{ border: '1px solid black', height: '100px' }}>
+                            <ul>
+                                {searchResult.slice(0, 5).map((value) => (
+                                    <li key={value.id}>{value.full_name}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </Col>
                 </Row>
             </div>
