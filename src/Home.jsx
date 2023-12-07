@@ -14,8 +14,15 @@ const suffix = (
 function Home() {
     return (
         <>
-            <div>
-                <Row justify="center" align="middle" style={{ height: '100vh' }}>
+            <div
+                style={{
+                    height: '100vh',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                }}
+            >
+                <Row>
                     <Col xs={20} sm={18} md={14} lg={12}>
                         <Search
                             placeholder="Search a Repository"
@@ -23,6 +30,11 @@ function Home() {
                             suffix={suffix}
                             enterButton
                         />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={20} sm={18} md={14} lg={12}>
+                        <div style={{ border: '1px solid black', height: '100px' }}></div>
                     </Col>
                 </Row>
             </div>
