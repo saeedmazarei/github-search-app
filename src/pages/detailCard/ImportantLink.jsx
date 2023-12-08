@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types'
 import { Typography, List } from 'antd'
 const { Title } = Typography
 
@@ -20,6 +20,10 @@ function ImportantLink({ repoDetails }) {
             </List>
         </>
     )
+}
+
+ImportantLink.propTypes = {
+    repoDetails: PropTypes.array.isRequired,
 }
 
 export default ImportantLink
