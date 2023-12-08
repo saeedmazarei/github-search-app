@@ -24,11 +24,13 @@ function RepoDetails() {
 
     return (
         <>
-            <Card loading={loading} style={{ margin: '5%' }}>
-                <CardHeader repoDetail={repoDetail} />
-                <Divider />
-                <ImportantLink repoDetails={repoDetail} />
-            </Card>
+            {repoDetail && (
+                <Card loading={loading} style={{ margin: '5%' }}>
+                    <CardHeader repoDetail={repoDetail} />
+                    <Divider />
+                    <ImportantLink repoDetails={repoDetail} />
+                </Card>
+            )}
         </>
     )
 }
