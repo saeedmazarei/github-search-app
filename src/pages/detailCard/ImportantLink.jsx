@@ -23,7 +23,7 @@ function ImportantLink({ repoDetails }) {
 }
 
 ImportantLink.propTypes = {
-    repoDetails: PropTypes.array.isRequired,
+    repoDetails: PropTypes.object.isRequired,
 }
 
 export default ImportantLink
