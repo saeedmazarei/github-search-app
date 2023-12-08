@@ -5,6 +5,7 @@ import { Card, Divider } from 'antd'
 
 import { searchDetail } from '../../services/apis'
 import CardHeader from './CardHeader'
+import ImportantLink from './ImportantLink'
 
 function RepoDetails() {
     const [loading, setLoading] = useState(false)
@@ -26,6 +27,7 @@ function RepoDetails() {
             <Card loading={loading} style={{ margin: '5%' }}>
                 <CardHeader repoDetail={repoDetail} />
                 <Divider />
+                <ImportantLink repoDetails={repoDetail} />
             </Card>
         </>
     )
