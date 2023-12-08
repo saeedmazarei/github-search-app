@@ -1,0 +1,24 @@
+/* Main container takes full viewport height */
+.main-container {
+    height: 95vh;
+  }
+  
+  /* Logo styling */
+  .logo {
+    margin-left: 28%; 
+    width: 40% !important;  
+    margin-top: 10%;
+    
+    /* Make logo full width on smaller screens */
+    @media screen and (max-width: 525px) {
+      width: 100%;
+      margin-top: 50%;
+    }
+  }
+  
+  /* Small logo variant */ 
+  .small-logo {
+    
+    /* Clamp margin top value across breakpoints */
+    margin-top: clamp(-30%, -15%, -20%); 
+  }
