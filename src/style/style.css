@@ -1,24 +1,39 @@
 /* Main container takes full viewport height */
 .main-container {
     height: 95vh;
-  }
-  
-  /* Logo styling */
-  .logo {
-    margin-left: 28%; 
-    width: 40% !important;  
+}
+
+/* Logo styling */
+.logo {
+    margin-left: 28%;
+    width: 40% !important;
     margin-top: 10%;
-    
+
     /* Make logo full width on smaller screens */
     @media screen and (max-width: 525px) {
-      width: 100%;
-      margin-top: 50%;
+        width: 100%;
+        margin-top: 50%;
     }
-  }
-  
-  /* Small logo variant */ 
-  .small-logo {
-    
+}
+
+/* Small logo variant */
+.small-logo {
     /* Clamp margin top value across breakpoints */
-    margin-top: clamp(-30%, -15%, -20%); 
-  }
+    margin-top: clamp(-30%, -15%, -20%);
+}
+
+/* style header of the repository detai card */
+.detail-card-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* make fork, watcher, issues in header responsive */
+.space-container {
+    flex-wrap: wrap;
+    @media screen and (max-width: 720px) {
+        margin-top: 5%;
+    }
+}

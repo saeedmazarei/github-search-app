@@ -7,19 +7,14 @@ const { Meta } = Card
 function CardHeader({ repoDetail }) {
     return (
         <div
-            style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                flexWrap: 'wrap',
-            }}
+        className='detail-card-header-container'
         >
             <Meta
                 avatar={<Avatar src={repoDetail?.owner.avatar_url} />}
                 title={repoDetail?.full_name}
                 description={repoDetail?.description}
             />
-            <Space split={<Divider type="vertical" />}>
+            <Space split={<Divider type="vertical" />} className='space-container'>
                 <Space>
                     <ForkOutlined />
                     <span>Fork: {repoDetail?.forks}</span>
