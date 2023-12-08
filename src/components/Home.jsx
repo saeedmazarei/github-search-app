@@ -1,10 +1,11 @@
 import { useState } from 'react'
 
-import { Input, Row, Col, Image, Empty } from 'antd'
+import { Input, Row, Col, Image } from 'antd'
 import { AudioOutlined } from '@ant-design/icons'
 import { searchRequest } from '../services/apis'
 import ShowSearchResult from './ShowSearchResults'
 import '../style/style.css'
+import EmptyResult from './EmptyResult'
 
 const { Search } = Input
 const suffix = (
@@ -62,14 +63,7 @@ function Home() {
                     </Col>
                 </Row>
                 {searchResult.length === 0 && searchPerformed && (
-                    <Empty
-                        image="/assets/empty.svg"
-                        style={{ marginTop: '5%' }}
-                        imageStyle={{
-                            height: 60,
-                        }}
-                        description={<span>No Repository Found</span>}
-                    ></Empty>
+                    <EmptyResult />
                 )}
                 {searchResult.length !== 0 && <ShowSearchResult searchResult={searchResult} />}
             </div>
