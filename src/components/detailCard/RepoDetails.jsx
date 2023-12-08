@@ -1,0 +1,34 @@
+import { useEffect, useState } from 'react'
+
+import { useParams } from 'react-router-dom'
+import { Card, Divider } from 'antd'
+
+import { searchDetail } from '../../services/apis'
+import CardHeader from './CardHeader'
+
+function RepoDetails() {
+    const [loading, setLoading] = useState(false)
+    const [repoDetail, setRepoDetail] = useState()
+    const { owner, repo } = useParams()
+
+    useEffect(() => {
+        async function getRepositoryDetail() {
+            setLoading(true)
+            const response = await searchDetail(owner, repo)
+            setRepoDetail(response.data)
+            setLoading(false)
+        }
+        getRepositoryDetail()
+    }, [owner, repo])
+
+    return (
+        <>
+            <Card loading={loading} style={{ margin: '5%' }}>
+                <CardHeader repoDetail={repoDetail} />
+                <Divider />
+            </Card>
+        </>
+    )
+}
+
+export default RepoDetails
