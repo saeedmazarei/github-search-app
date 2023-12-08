@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types'
 import { Avatar, Space, Divider, Card } from 'antd'
 import { ForkOutlined, EyeOutlined, CloseCircleOutlined } from '@ant-design/icons'
 
@@ -30,6 +30,10 @@ function CardHeader({ repoDetail }) {
             </Space>
         </div>
     )
+}
+
+CardHeader.propTypes = {
+    repoDetail: PropTypes.object.isRequired,
 }
 
 export default CardHeader
