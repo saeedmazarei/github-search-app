@@ -4,7 +4,7 @@ import { Input, Row, Col, Image } from 'antd'
 import { AudioOutlined } from '@ant-design/icons'
 import { searchRequest } from '../../services/apis'
 import ShowSearchResult from './ShowSearchResults'
-import '../style/style.css'
+import '../../style/style.css'
 import EmptyResult from './EmptyResult'
 
 const { Search } = Input
