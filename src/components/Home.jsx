@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Input, Row, Col, Image } from 'antd'
+import { Input, Row, Col, Image, Empty } from 'antd'
 import { AudioOutlined } from '@ant-design/icons'
 import { searchRequest } from '../services/apis'
 import ShowSearchResult from './ShowSearchResults'
@@ -19,15 +19,18 @@ const suffix = (
 function Home() {
     const [searchResult, setSearchResult] = useState([])
     const [loading, setLoading] = useState(false)
+    const [searchPerformed, setSearchPerformed] = useState(false)
 
     async function searchHandler(value) {
         if (value === '') {
             setSearchResult([])
+            setSearchPerformed(false)
         } else {
             setLoading(true)
             const response = await searchRequest(value)
             setSearchResult(response.data.items)
             setLoading(false)
+            setSearchPerformed(true)
         }
     }
 
@@ -44,11 +47,7 @@ function Home() {
                 <Row justify="center" align="top">
                     {searchResult.length !== 0 && (
                         <Col xs={3} sm={2} md={2} lg={1}>
-                            <Image
-                                src="/assets/logo.png"
-                                className='small-logo'
-                                preview={false}
-                            />
+                            <Image src="/assets/logo.png" className="small-logo" preview={false} />
                         </Col>
                     )}
                     <Col xs={17} sm={17} md={13} lg={11}>
@@ -62,6 +61,16 @@ function Home() {
                         />
                     </Col>
                 </Row>
+                {searchResult.length === 0 && searchPerformed && (
+                    <Empty
+                        image="/assets/empty.svg"
+                        style={{ marginTop: '5%' }}
+                        imageStyle={{
+                            height: 60,
+                        }}
+                        description={<span>No Repository Found</span>}
+                    ></Empty>
+                )}
                 {searchResult.length !== 0 && <ShowSearchResult searchResult={searchResult} />}
             </div>
         </>
