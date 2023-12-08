@@ -28,10 +28,14 @@ function Home() {
             setSearchPerformed(false)
         } else {
             setLoading(true)
-            const response = await searchRequest(value)
-            setSearchResult(response.data.items)
-            setLoading(false)
-            setSearchPerformed(true)
+            try {
+                const response = await searchRequest(value)
+                setSearchResult(response.data.items)
+                setLoading(false)
+                setSearchPerformed(true)
+            } catch {
+                setLoading(false)
+            }
         }
     }
 
@@ -62,9 +66,7 @@ function Home() {
                         />
                     </Col>
                 </Row>
-                {searchResult.length === 0 && searchPerformed && (
-                    <EmptyResult />
-                )}
+                {searchResult.length === 0 && searchPerformed && <EmptyResult />}
                 {searchResult.length !== 0 && <ShowSearchResult searchResult={searchResult} />}
             </div>
         </>

@@ -15,9 +15,13 @@ function RepoDetails() {
     useEffect(() => {
         async function getRepositoryDetail() {
             setLoading(true)
-            const response = await searchDetail(owner, repo)
-            setRepoDetail(response.data)
-            setLoading(false)
+            try {
+                const response = await searchDetail(owner, repo)
+                setRepoDetail(response.data)
+                setLoading(false)
+            } catch {
+                setLoading(false)
+            }
         }
         getRepositoryDetail()
     }, [owner, repo])
